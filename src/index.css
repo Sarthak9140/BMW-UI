@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import SCSS modules */
+@import './styles/cursor.scss';
+@import './styles/models.scss'; 
+@import './styles/performance.scss';
+@import './styles/car360.scss';
+
 /* BMW Luxury Design System - Dark Theme with Neon Highlights */
 
 @layer base {

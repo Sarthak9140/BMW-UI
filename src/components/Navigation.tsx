@@ -4,14 +4,19 @@ import { useState } from "react";
 import { BMWLogo } from "./BMWLogo";
 import { Button } from "./ui/button";
 
-export const Navigation = () => {
+interface NavigationProps {
+  activeTab: string;
+  onTabChange: (tab: string) => void;
+}
+
+export const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { name: "Models", href: "#gallery" },
-    { name: "Performance", href: "#performance" },
-    { name: "Innovation", href: "#innovation" },
-    { name: "Experience", href: "#experience" },
+    { name: "Home", id: "home" },
+    { name: "Models", id: "models" },
+    { name: "Performance", id: "performance" },
+    { name: "Gallery", id: "gallery" },
   ];
 
   return (
@@ -35,17 +40,21 @@ export const Navigation = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             {menuItems.map((item) => (
-              <motion.a
+              <motion.button
                 key={item.name}
-                href={item.href}
+                onClick={() => onTabChange(item.id)}
                 whileHover={{ y: -2 }}
-                className="text-foreground/80 hover:text-foreground transition-colors relative group"
+                className={`text-foreground/80 hover:text-foreground transition-colors relative group cursor-pointer ${
+                  activeTab === item.id ? 'text-foreground' : ''
+                }`}
               >
                 {item.name}
-                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all group-hover:w-full" />
-              </motion.a>
+                <div className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all ${
+                  activeTab === item.id ? 'w-full' : 'w-0 group-hover:w-full'
+                }`} />
+              </motion.button>
             ))}
-            <Button variant="hero" size="sm">
+            <Button variant="hero" size="sm" className="cursor-hover">
               Configure
             </Button>
           </div>
@@ -68,14 +77,18 @@ export const Navigation = () => {
             className="md:hidden mt-4 pb-4 border-t border-white/10 pt-4"
           >
             {menuItems.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
-                className="block py-2 text-foreground/80 hover:text-foreground transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                  onTabChange(item.id);
+                  setIsMenuOpen(false);
+                }}
+                className={`block py-2 text-foreground/80 hover:text-foreground transition-colors w-full text-left ${
+                  activeTab === item.id ? 'text-foreground' : ''
+                }`}
               >
                 {item.name}
-              </a>
+              </button>
             ))}
           </motion.div>
         )}
