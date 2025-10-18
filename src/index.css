@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 /* Import SCSS modules */
-@import './styles/cursor.scss';
-@import './styles/models.scss'; 
-@import './styles/performance.scss';
-@import './styles/car360.scss';
+/* @import './styles/cursor.scss'; */
+@import "./styles/models.scss";
+@import "./styles/performance.scss";
+@import "./styles/car360.scss";
 
 /* BMW Luxury Design System - Dark Theme with Neon Highlights */
 
@@ -23,17 +23,17 @@
     --popover-foreground: 0 0% 98%;
 
     /* BMW Signature Colors */
-    --primary: 213 100% 50%;  /* BMW Blue */
+    --primary: 213 100% 50%; /* BMW Blue */
     --primary-foreground: 0 0% 98%;
     --primary-glow: 213 100% 65%;
-    
+
     --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 90%;
 
     --muted: 0 0% 8%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 180 100% 50%;  /* Neon Cyan */
+    --accent: 180 100% 50%; /* Neon Cyan */
     --accent-foreground: 0 0% 10%;
     --accent-glow: 180 100% 70%;
 
@@ -47,10 +47,26 @@
     --radius: 0.75rem;
 
     /* BMW Luxury Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(0 0% 8%));
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
-    --gradient-glass: linear-gradient(135deg, hsl(0 0% 10% / 0.8), hsl(0 0% 20% / 0.3));
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(var(--background)),
+      hsl(0 0% 8%)
+    );
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(var(--primary)),
+      hsl(var(--primary-glow))
+    );
+    --gradient-accent: linear-gradient(
+      135deg,
+      hsl(var(--accent)),
+      hsl(var(--accent-glow))
+    );
+    --gradient-glass: linear-gradient(
+      135deg,
+      hsl(0 0% 10% / 0.8),
+      hsl(0 0% 20% / 0.3)
+    );
 
     /* BMW Luxury Shadows & Glows */
     --shadow-luxury: 0 25px 50px -12px hsl(0 0% 0% / 0.8);
@@ -59,14 +75,15 @@
     --shadow-glass: 0 8px 32px hsl(0 0% 0% / 0.4);
 
     /* Premium Typography */
-    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    
+    --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, sans-serif;
+
     /* Premium Transitions */
     --transition-luxury: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-/* BMW Luxury Components & Animations */
+  /* BMW Luxury Components & Animations */
 }
 
 @layer base {
@@ -83,11 +100,11 @@
   ::-webkit-scrollbar {
     @apply w-2;
   }
-  
+
   ::-webkit-scrollbar-track {
     @apply bg-muted/20;
   }
-  
+
   ::-webkit-scrollbar-thumb {
     @apply bg-primary/50 rounded-full hover:bg-primary/70;
   }
@@ -116,7 +133,7 @@
 
   .btn-hero::before {
     @apply absolute inset-0 bg-white/20 transform scale-x-0 origin-left rounded-full;
-    content: '';
+    content: "";
     transition: var(--transition-smooth);
   }
 
@@ -172,15 +189,21 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes glow-pulse {
-  0%, 100% { 
+  0%,
+  100% {
     box-shadow: var(--shadow-primary-glow);
   }
-  50% { 
+  50% {
     box-shadow: 0 0 60px hsl(var(--primary) / 0.6);
   }
 }
