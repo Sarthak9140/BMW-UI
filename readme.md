@@ -4,7 +4,7 @@ A dynamic, modern BMW-inspired user interface built with React, TypeScript, and 
 This project includes an interactive 360° car view, smooth animations, and an integrated AI chatbot for real-time user interaction.
 
 🚀 Deployment
-Live Demo : bmw-ui-taupe.vercel.app
+Live Demo https://bmw-ui-taupe.vercel.app
 
 🔧 Tech Stack
 
